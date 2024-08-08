@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { getSingleProduct } from "../../config/firebase";
 
 const Detail = () => {
     const navigate = useNavigate();
@@ -8,13 +9,18 @@ const Detail = () => {
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
-        axios.get(`https://fakestoreapi.com/products/${productId}`)
-            .then((res) => {
-                setProduct(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        // axios.get(`https://fakestoreapi.com/products/${productId}`)
+        //     .then((res) => {
+        //         setProduct(res.data);
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     });
+        const fetchSingleProduct = async ()=>{
+            const productDetail = await getSingleProduct(productId) 
+            setProduct(productDetail)
+        }
+        fetchSingleProduct()
     }, [productId]);
 
     const goBack = () => {
@@ -32,7 +38,7 @@ const Detail = () => {
                     <div className="max-w-lg mx-auto bg-white rounded-xl shadow-md overflow-hidden">
                         <div className="p-4">
                             <img src={product.image} alt=""/>
-                            <h1 className="text-3xl font-bold mb-2">{product.title}</h1>
+                            <h1 className="text-3xl font-bold mt-5 mb-2">{product.title}</h1>
                             <p className="text-gray-600 mb-4">${product.price}</p>
                             <p className="text-gray-800">{product.description}</p>
                         </div>

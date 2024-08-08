@@ -10,9 +10,9 @@ const Card = ({img, title, description, price}) => {
       alt="Shoes" />
   </figure>
   <div className="card-body">
-    <h2 className="card-title">{title}</h2>
-    <p>{description}</p>
-    <p>{price}</p>
+    {/* <h2 className="card-title">{title}</h2> */}
+    {/* <p>{description}</p> */}
+    {/* <p>{price}</p> */}
   </div>
 </div>
     </>

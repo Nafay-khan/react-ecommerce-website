@@ -1,13 +1,13 @@
 import React from "react"
 import Router from "./config/router"
 
-function App() {
 
+function App() {
   return (
     <>
-      <div>
+          <div>
           <Router/>
-      </div>
+          </div>
     </>
   )
 }
