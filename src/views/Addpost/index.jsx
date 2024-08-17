@@ -14,7 +14,7 @@ const Addpost = () => {
         try {
             await addProduct({image, title, description, price})
             alert('added succesfully')
-            navigate('/dashboard')
+            navigate('/')
 
         } catch (e) {
             alert(e.message)
