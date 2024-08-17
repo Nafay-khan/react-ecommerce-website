@@ -21,7 +21,11 @@ const Addpost = () => {
         }
     }
 
-  return (
+    const goBack = () => {
+      navigate(-1);
+  };
+
+  return (<>
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
   <form
     onSubmit={postProducts} 
@@ -72,7 +76,7 @@ const Addpost = () => {
         Price
       </label>
       <input
-        onChange={(e) => setPrice(e.target.value)}
+        onChange={(e) => setPrice(Number(e.target.value))}
         type="number"
         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
         required
@@ -85,9 +89,12 @@ const Addpost = () => {
     >
       Add Product
     </button>
+    <div className='text-center'>
+    <button onClick={goBack} className="btn btn-primary mt-5">Go Back</button>
+    </div>
   </form>
 </div>
-  )
+  </>)
 }
 
 export default Addpost

@@ -28,7 +28,6 @@ const registerUser = async (userInfo)=>{
         email,
         name,
       });
-
 }
 
 const loginUser = (email, password)=>{

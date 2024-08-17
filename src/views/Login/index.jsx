@@ -12,8 +12,8 @@ const Login = () => {
 
         try {
             await loginUser(email, password)
-            alert('loged in hogya')
-            navigate('/dashboard')
+            alert('user successfully loged in')
+            navigate('/')
         } catch (e) {
             alert(e.message)
         }
@@ -31,7 +31,7 @@ const Login = () => {
         <img
           src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
           className="w-full"
-          alt="Sample image" />
+          alt="image" />
       </div>
 
       {/* <!-- Right column container --> */}
@@ -65,7 +65,7 @@ const Login = () => {
             {/* <!-- Register link --> */}
             <p className="mb-0 mt-2 pt-1 text-sm font-semibold text-center">
               Don't have an account?
-              <button onClick={()=>navigate(-1)} className="text-blue-700">Register</button>
+              <button onClick={()=>navigate('/register')} className="text-blue-700">Register</button>
             </p>
           </div>
       </div>

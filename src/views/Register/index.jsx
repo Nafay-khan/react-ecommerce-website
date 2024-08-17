@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { registerUser } from '../../config/firebase'
 import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
-
+  
     const navigate = useNavigate()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
@@ -14,10 +14,7 @@ const Register = () => {
         try {
             await registerUser({name, email, password})
             alert('rigister done')
-            navigate('login')
-            setEmail('')
-            setName('')
-            setPassword('')
+            navigate('/login')
         } catch (e) {
             alert(e.message)
         }
@@ -36,7 +33,7 @@ const Register = () => {
         <img
           src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
           className="w-full"
-          alt="Sample image" />
+          alt="image" />
       </div>
 
       {/* <!-- Right column container --> */}
@@ -81,7 +78,7 @@ const Register = () => {
             {/* <!-- Register link --> */}
             <p className="mb-0 mt-2 pt-1 text-sm font-semibold text-center">
               Have an account?
-              <button onClick={()=>navigate('login')} className="text-blue-700">Login</button>
+              <button onClick={()=>navigate('/login')} className="text-blue-700">Login</button>
             </p>
           </div>
       </div>
